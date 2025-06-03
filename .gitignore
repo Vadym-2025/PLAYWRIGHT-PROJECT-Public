@@ -1,0 +1,10 @@
+
+# Playwright
+node_modules/
+/get-know-typescript
+/test-results/
+/playwright-report/
+/tests-examples/
+/blob-report/
+/playwright/.cache/
+/tests/example.spec.ts
