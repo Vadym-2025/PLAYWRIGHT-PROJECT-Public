@@ -8,3 +8,5 @@ node_modules/
 /tests-examples/
 /blob-report/
 /playwright/.cache/
+.gitignore
+.playwright.config.ts
