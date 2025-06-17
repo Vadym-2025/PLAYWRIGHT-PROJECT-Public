@@ -13,14 +13,16 @@ import { expect, type Locator, type Page } from '@playwright/test';
            this.page = page;
            this.firstNameField = page.locator('#new_user_first_name');
            this.lastNameField = page.locator('#new_user_last_name');
-           this.userNameField = page.locator('#new_user_first_name');
+           this.userNameField = page.locator('#new_user_username');
            this.emailField = page.locator('#new_user_email');
            this.passwordField = page.locator('#new_user_password');
-           this.submitButton = page.locator('button[type="submit"]');
+           this.submitButton = page.locator('input[type="submit"]');
        }
 
-       await page.goto('https://gitlab.testautomate.me/users/sign_in');
-
+       async open() {
+    await this.page.goto('https://gitlab.testautomate.me/users/sign_up');
+       }
+       
        async fillFirstName(firstName: string) {
            await this.firstNameField.fill(firstName);
        }

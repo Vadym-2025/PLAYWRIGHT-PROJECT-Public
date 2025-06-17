@@ -1,6 +1,7 @@
 
 # Playwright
 node_modules/
+.DS_Store
 /get-know-typescript
 /test-results/
 /playwright-report/

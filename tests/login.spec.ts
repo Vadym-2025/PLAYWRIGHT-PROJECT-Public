@@ -7,5 +7,5 @@ test('Login with existing user', async ({ page })=>{
     await page.locator('[data-qa-selector="password_field"]').fill('some password')
     await page.locator('[data-qa-selector="sign_in_button"]').click()
 
-    await expect(page.locator('[data-qa-selector="welcome_title_content"]')).toBeVisible()
+    await expect(page.locator('#gl-text-center')).toHaveText('Welcome to GitLab');
 })
