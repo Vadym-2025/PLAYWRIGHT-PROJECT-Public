@@ -1,28 +1,21 @@
 import { test, expect } from '@playwright/test';
 import { SignUpPage } from '../pages/SignUpPage';
-import { faker } from '@faker-js/faker';
+import {generateAndSaveTestUser, readTestUser} from '../utils/testdata/userdata';
+
+const filePath = '.test-user.json';
 
    test('sign up with random data', async ({ page }) => {
        const signUpPage = new SignUpPage(page);
 
-       const randomFirstName = faker.person.firstName();
-       const randomLastName = faker.person.lastName();
-       const randomUserName = `${randomFirstName}${randomLastName}`.toLowerCase().replace(/[^a-z0-9]/g, '');       
-       const randomEmail = `${randomUserName}@example.com`;
-       const Password = "ThisIsJustForTesting123!";
-       
-      // console.log('Generated username:', randomFirstName); // debug
-      // console.log('Username:', randomUserName);
-      // console.log(randomEmail); // debug 
-     
+       const user = generateAndSaveTestUser(filePath);
+
        await signUpPage.open();
-       await signUpPage.fillFirstName(randomFirstName);
-       await signUpPage.fillLastName(randomLastName);
-       await signUpPage.fillUserName(randomUserName);
-       await signUpPage.fillEmail(randomEmail);
-       await signUpPage.fillPassword(Password);
+       await signUpPage.fillFirstName(user.randomFirstName);
+       await signUpPage.fillLastName(user.randomLastName);
+       await signUpPage.fillUserName(user.randomUserName);
+       await signUpPage.fillEmail(user.randomEmail);
+       await signUpPage.fillPassword(user.Password);
        await signUpPage.submitForm();
 
-       await expect (page.locator('h2.gl-text-center')).toBeVisible();
-       await expect(page.locator('h2.gl-text-center')).toHaveText(`Welcome to GitLab,${randomFirstName}!`);
+       await expect(page.locator('h2.gl-text-center')).toHaveText(`Welcome to GitLab,${user.randomFirstName}!`);
    });

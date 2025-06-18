@@ -1,0 +1,12 @@
+
+# Playwright
+node_modules/
+.DS_Store
+/get-know-typescript
+/test-results/
+/playwright-report/
+/tests-examples/
+/blob-report/
+/playwright/.cache/
+/playwright/.test-user.json
+/test-users/
