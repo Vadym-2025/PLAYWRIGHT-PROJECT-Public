@@ -23,33 +23,17 @@ import { expect, type Locator, type Page } from '@playwright/test';
     await this.page.goto('https://gitlab.testautomate.me/users/sign_up');
        }
        
-       async fillFirstName(firstName: string) {
+       async signUp(firstName: string, lastName: string, userName: string, email: string, password: string) {
            await this.firstNameField.fill(firstName);
-       }
-
-       async fillLastName(lastName: string) {
            await this.lastNameField.fill(lastName);
-       }
-
-       async fillUserName(userName: string) {
            await this.userNameField.fill(userName);
-       }
-
-       async fillEmail(email: string) {
            await this.emailField.fill(email);
-       }
-
-       async fillPassword(password: string) {
            await this.passwordField.fill(password);
-       }
-
-       async submitForm() {
            await this.submitButton.click();
        }
    }
 
-//   
-//    import {Page} from '@playwright/test'
+//
 
 // export class SignUpPage {
 //   constructor(public page: Page) {}
