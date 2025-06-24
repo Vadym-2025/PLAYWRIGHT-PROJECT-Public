@@ -11,5 +11,4 @@ node_modules/
 /playwright/.test-user.json
 /test-users/
 .test-user.json
-.gitlab-user.json
-/utils/
+.test-userapi.json

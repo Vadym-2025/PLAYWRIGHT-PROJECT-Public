@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import {generateAndSaveTestUser, readTestUser} from '../utils/testdata/userdata';
 
-const filePath = '.test-user.json';
+const filePath = '.test-userapi.json';
 
 test('Create user via GitLab API', async ({ request }) => {
 const user = generateAndSaveTestUser(filePath);
